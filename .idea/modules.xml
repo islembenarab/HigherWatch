@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/AccountMSJWT/AccountMS.iml" filepath="$PROJECT_DIR$/AccountMSJWT/AccountMS.iml" />
+      <module fileurl="file://$PROJECT_DIR$/DemandMS/DemandMS.iml" filepath="$PROJECT_DIR$/DemandMS/DemandMS.iml" />
+      <module fileurl="file://$PROJECT_DIR$/HWConfigServer/HWConfigServer.iml" filepath="$PROJECT_DIR$/HWConfigServer/HWConfigServer.iml" />
+      <module fileurl="file://$PROJECT_DIR$/HWEurekaServer/HWEurekaServer.iml" filepath="$PROJECT_DIR$/HWEurekaServer/HWEurekaServer.iml" />
+      <module fileurl="file://$PROJECT_DIR$/HWGateWay/HWGateWay.iml" filepath="$PROJECT_DIR$/HWGateWay/HWGateWay.iml" />
+      <module fileurl="file://$PROJECT_DIR$/HigherWatch.iml" filepath="$PROJECT_DIR$/HigherWatch.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ProjectMS/ProjectMS.iml" filepath="$PROJECT_DIR$/ProjectMS/ProjectMS.iml" />
+      <module fileurl="file://$PROJECT_DIR$/untitled.iml" filepath="$PROJECT_DIR$/untitled.iml" />
+    </modules>
+  </component>
+</project>

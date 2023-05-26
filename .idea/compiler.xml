@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile default="true" name="Default" enabled="true" />
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="HWConfigServer" />
+        <module name="HWGateWay" />
+        <module name="ProjectMS" />
+        <module name="AccountMS" />
+        <module name="DemandMS" />
+        <module name="HWEurekaServer" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="AccountMS" target="17" />
+      <module name="DemandMS" target="17" />
+      <module name="gatewayserver" target="17" />
+      <module name="HWConfigServer" target="17" />
+      <module name="HWEurekaServer" target="17" />
+      <module name="HWGateWay" target="17" />
+      <module name="MonitoringMS" target="17" />
+      <module name="ProjectMangementMS" target="17" />
+      <module name="ProjectMS" target="17" />
+    </bytecodeTargetLevel>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="AccountMS" options="-parameters" />
+      <module name="DemandMS" options="-parameters" />
+      <module name="HWConfigServer" options="-parameters" />
+      <module name="HWEurekaServer" options="-parameters" />
+      <module name="HWGateWay" options="-parameters" />
+      <module name="MonitoringMS" options="-parameters" />
+      <module name="ProjectMS" options="-parameters" />
+      <module name="ProjectMangementMS" options="-parameters" />
+      <module name="gatewayserver" options="-parameters" />
+    </option>
+  </component>
+</project>

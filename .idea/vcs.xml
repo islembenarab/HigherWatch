@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="VcsDirectoryMappings">
+    <mapping directory="" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/AccountMSJWT" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/DemandMS" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/HWConfigServer" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/HWEurekaServer" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/HWGateWay" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/ProjectMS" vcs="Git" />
+  </component>
+</project>
