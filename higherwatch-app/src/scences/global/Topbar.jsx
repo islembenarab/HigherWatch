@@ -1,11 +1,10 @@
-import React, { useContext } from "react";
-import { Box, IconButton, Typography, useTheme, Avatar } from "@mui/material";
-import { ColorModeContext, tokens } from "../../theme";
+import React, {useContext} from "react";
+import {Avatar, Box, IconButton, useTheme} from "@mui/material";
+import {ColorModeContext, tokens} from "../../theme";
 import InputBase from "@mui/material/InputBase";
 import LightModeOutlinedIcon from "@mui/icons-material/LightModeOutlined";
 import DarkModeOutlinedIcon from "@mui/icons-material/DarkModeOutlined";
 import NotificationsOutlinedIcon from "@mui/icons-material/NotificationsOutlined";
-import SettingsOutlinedIcon from "@mui/icons-material/SettingsOutlined";
 import ExitToAppIcon from "@mui/icons-material/ExitToApp";
 import SearchIcon from "@mui/icons-material/Search";
 

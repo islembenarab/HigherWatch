@@ -1,11 +1,9 @@
-import { Box, Button, IconButton, Typography, useTheme } from "@mui/material";
-import { tokens } from "../../theme";
-import { mockTransactions } from "../../data/mockData";
-import DownloadOutlinedIcon from "@mui/icons-material/DownloadOutlined";
+import {Box, Button, Typography, useTheme} from "@mui/material";
+import {tokens} from "../theme";
 import PersonAddIcon from "@mui/icons-material/PersonAdd";
 import SupervisorAccountIcon from "@mui/icons-material/SupervisorAccount";
 import AccountBalanceIcon from "@mui/icons-material/AccountBalance";
-import Header from "../../components/Header";
+import HeaderDashboard from "../component/HeaderDashboard";
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import CardActions from "@mui/material/CardActions";
@@ -22,7 +20,7 @@ const AdminSpace = () => {
     <Box>
       {/* HEADER */}
       <Box mx={2}>
-        <Header title="Admin Space" />
+        <HeaderDashboard title="Admin Space" />
       </Box>
 
       {/* CARD GRID */}

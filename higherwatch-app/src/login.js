@@ -18,7 +18,7 @@ function Login() {
 
     const handleSubmit = async (event) => {
         event.preventDefault();
-        api.post('/api/auth/signIn', {email, password})
+        api.post('/accounts/api/auth/signIn', {email, password})
             .then((response) => {
                 // Store the JWT token in local storage
                 localStorage.setItem('token', response.data.token);
@@ -31,7 +31,7 @@ function Login() {
                 console.log(response.data.token)
 
                 if (isAdmin) {
-                    window.location.href = '/AdminSpace1';
+                    window.location.href = '/dashboard';
                 }
             })
             .catch((error) => {
