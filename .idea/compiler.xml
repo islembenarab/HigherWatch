@@ -7,24 +7,18 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="AccountMS" />
         <module name="HWConfigServer" />
         <module name="HWGateWay" />
         <module name="ProjectMS" />
-        <module name="AccountMS" />
         <module name="DemandMS" />
         <module name="HWEurekaServer" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="AccountMS" target="17" />
-      <module name="DemandMS" target="17" />
       <module name="gatewayserver" target="17" />
-      <module name="HWConfigServer" target="17" />
-      <module name="HWEurekaServer" target="17" />
-      <module name="HWGateWay" target="17" />
       <module name="MonitoringMS" target="17" />
       <module name="ProjectMangementMS" target="17" />
-      <module name="ProjectMS" target="17" />
       <module name="ZipkinServer" target="17" />
     </bytecodeTargetLevel>
   </component>
