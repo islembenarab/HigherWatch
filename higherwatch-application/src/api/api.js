@@ -26,7 +26,7 @@ api.interceptors.response.use(
         if (error.response.status === 401) {
             // If the token is expired or invalid, redirect to the login page
             localStorage.removeItem('token');
-            window.location.href = '/login';
+            window.location.href = '/loginForm';
         }
         return Promise.reject(error);
     }

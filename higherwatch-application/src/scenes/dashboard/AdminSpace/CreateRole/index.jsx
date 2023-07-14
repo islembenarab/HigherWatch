@@ -47,7 +47,7 @@ const CreateRole = () => {
             {name})
             .then((response) => {
                 // eslint-disable-next-line no-restricted-globals
-                navigate(localStorage.getItem("dashboardLink"));
+                navigate("/dashboard");
             })
             .catch((error) => {
                 // Handle the error
@@ -64,8 +64,9 @@ const CreateRole = () => {
     const columns = [ {field: "id", headerName: "name", align: "center",width:"100%"}];
     return (
         <Box mt={2} mx={2} my={2} mb={2}>
+            <Box mx={2} display={"flex"} justifyContent={"center"}>
             <Header title="Create Role" subtitle="Create a Role"/>
-
+            </Box>
             <Formik
                 onSubmit={handleSubmit}
                 initialValues={initialValues}
@@ -80,7 +81,7 @@ const CreateRole = () => {
                       handleSubmit,
                   }) => (
                     <form onSubmit={handleSubmit}>
-                        <Grid container spacing={2}>
+                        <Grid container spacing={2} justifyContent={"center"}>
                             <Grid item xs={12} sm={6}>
                                 <TextField
                                     fullWidth
@@ -95,8 +96,6 @@ const CreateRole = () => {
                                     helperText={touched.name && errors.name}
                                 />
                             </Grid>
-
-
                             <Grid item xs={12}>
                                 <Button type="submit" color="secondary" variant="contained">
                                     Create New Role

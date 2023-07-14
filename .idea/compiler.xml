@@ -25,6 +25,7 @@
       <module name="MonitoringMS" target="17" />
       <module name="ProjectMangementMS" target="17" />
       <module name="ProjectMS" target="17" />
+      <module name="ZipkinServer" target="17" />
     </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
@@ -37,6 +38,7 @@
       <module name="MonitoringMS" options="-parameters" />
       <module name="ProjectMS" options="-parameters" />
       <module name="ProjectMangementMS" options="-parameters" />
+      <module name="ZipkinServer" options="-parameters" />
       <module name="gatewayserver" options="-parameters" />
     </option>
   </component>

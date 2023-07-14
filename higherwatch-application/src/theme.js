@@ -1,4 +1,4 @@
-import {createContext, useMemo, useState} from "react";
+import {createContext, useEffect, useMemo, useState} from "react";
 import {createTheme} from "@mui/material/styles";
 import lightlogo from "./images/hwlightmode.png"
 import darklogo from "./images/Hwlogodark1.png"
@@ -208,17 +208,23 @@ export const ColorModeContext = createContext({
     },
 });
 
+
 export const useMode = () => {
-    const [mode, setMode] = useState("light");
+    const storedMode = localStorage.getItem("themeMode");
+    const [mode, setMode] = useState(storedMode || "light");
+
+    useEffect(() => {
+        localStorage.setItem("themeMode", mode);
+    }, [mode]);
 
     const colorMode = useMemo(
         () => ({
-            toggleColorMode: () =>
-                setMode((prev) => (prev === "light" ? "dark" : "light")),
+            toggleColorMode: () => setMode((prev) => (prev === "light" ? "dark" : "light")),
         }),
         []
     );
 
     const theme = useMemo(() => createTheme(themeSettings(mode)), [mode]);
+
     return [theme, colorMode];
 };

@@ -18,15 +18,22 @@ const AdminSpace = () => {
   const isDarkMode = theme.palette.mode === "dark";
   const iconColor = isDarkMode ? colors.grey[100] : theme.palette.primary.main;
   const handleRegisterClick = () => {
-    navigate("/registration")// Replace '/registration' with the path to your FormRegistration component
+    navigate("/registration")
+    window.scrollTo(0, 0);
   };
 
   const handleManage =()=> {
       navigate("/manageAccounts")
+    window.scrollTo(0, 0);
   }
 
   const handleCreateRole = () => {
     navigate("/CreateRole")
+    window.scrollTo(0, 0);
+  };
+  const handleCreateStructure = () => {
+    navigate("/CreateStructure")
+    window.scrollTo(0, 0);
   };
   return (
     <Box>
@@ -114,7 +121,7 @@ const AdminSpace = () => {
             </Typography>
           </CardContent>
           <CardActions>
-            <Button variant="contained" color="primary">
+            <Button variant="contained" color="primary" onClick={handleCreateStructure}>
               Create
             </Button>
           </CardActions>

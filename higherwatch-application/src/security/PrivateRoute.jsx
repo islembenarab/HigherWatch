@@ -1,19 +1,12 @@
-import { Route } from 'react-router-dom';
+import {Navigate, useLocation} from 'react-router-dom'
 
-const PrivateRoute = ({ component: Component, ...rest }) => {
-    const isAuthenticated = localStorage.getItem('token');
+export function RequireAuth({ children }) {
+    const isAuthenticated = localStorage.getItem("token"); // your logic here
+    const location = useLocation();
 
-    return (
-        <Route
-            {...rest}
-            render={(props) =>
-                isAuthenticated ? (
-                    <Component {...props} />
-                ) : (
-                    window.location.href="/LoginForm"
-                )
-            }
-        />
-    );
-};
-export default PrivateRoute;
+    if (!isAuthenticated) {
+        return <Navigate to="/loginForm" state={{ from: location }} />;
+    }
+
+    return children;
+}

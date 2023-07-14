@@ -1,25 +1,25 @@
 import {Box, Typography, useTheme} from "@mui/material";
 import {DataGrid} from "@mui/x-data-grid";
-import {tokens} from "../../theme";
-import Header from "../../components/Header";
-import api from "../../api/api";
+import {tokens} from "../../../../theme";
+import Header from "../../../../components/Header";
+import api from "../../../../api/api";
 import {useEffect, useState} from "react";
 
 const Team = () => {
     const [users, setUsers] = useState([]);
     useEffect(() => {
         getUsers().then((User) => {
-            console.log(User)
             setUsers(User)
         })
     }, [])
+
     const theme = useTheme();
     const colors = tokens(theme.palette.mode);
     const getUsers = async () => {
-
         const response = await api.get('accounts/admin/Users');
         return response.data.map(user => ({
             ...user,
+            structureName: user?.structure?.structureName,// Extract the structureName field from user.structure
             id: user.userId // Add an id property using userId
         }));
     };
@@ -47,7 +47,7 @@ const Team = () => {
             align: "center"
         },
         {
-            field: "structure",
+            field: "structureName",
             headerName: "Structure",
             flex: 1,
 
@@ -95,47 +95,50 @@ const Team = () => {
     ];
 
 
-    return (
-        <Box display={"flex"} justifyContent={"center"} flexDirection={"column"}  flexBasis={"100%"} >
-            <Box  ><Header title="TEAM"  subtitle="Managing the Team Members"/></Box>
-            <Box
-                m="5px 0 0 0"
-                height="calc(100vh - 200px)" // Adjust the height value as needed
-                sx={{
-                    "& .MuiDataGrid-root": {
-                        border: "none",
-                    },
-                    "& .MuiDataGrid-cell": {
-                        borderBottom: "none",
-                    },
-                    "& .name-column--cell": {
-                        color: colors.greenAccent[300],
-                    },
-                    "& .MuiDataGrid-columnHeaders": {
-                        backgroundColor: colors.blueAccent[700],
-                        borderBottom: "none",
-                    },
-                    "& .MuiDataGrid-virtualScroller": {
-                        backgroundColor: colors.primary[400],
-                    },
-                    "& .MuiDataGrid-footerContainer": {
-                        borderTop: "none",
-                        backgroundColor: colors.blueAccent[700],
-                    },
-                    "& .MuiCheckbox-root": {
-                        color: `${colors.greenAccent[200]} !important`,
-                    },
-                }}
-            >
-                <DataGrid checkboxSelection
-                          rows={users}
-                          columns={columns}
-                          scrollbarSize={10}
-                          sx={{ width:"100%"}}
-
-                />
+    return (<Box>
+            <Box mx={2} display={"flex"} justifyContent={"center"}>
+                <Header title="USERS" subtitle="Managing the USERS AND Their ROLES"/>
             </Box>
-        </Box>
+            <Box display={"flex"} justifyContent={"center"} flexDirection={"column"} flexBasis={"100%"}>
+
+                <Box
+                    m="0 2% 0 2%"
+                    height="calc(100vh - 200px)" // Adjust the height value as needed
+                    sx={{
+                        "& .MuiDataGrid-root": {
+                            border: "none",
+                        },
+                        "& .MuiDataGrid-cell": {
+                            borderBottom: "none",
+                        },
+                        "& .name-column--cell": {
+                            color: colors.greenAccent[300],
+                        },
+                        "& .MuiDataGrid-columnHeaders": {
+                            backgroundColor: colors.blueAccent[700],
+                            borderBottom: "none",
+                        },
+                        "& .MuiDataGrid-virtualScroller": {
+                            backgroundColor: colors.primary[400],
+                        },
+                        "& .MuiDataGrid-footerContainer": {
+                            borderTop: "none",
+                            backgroundColor: colors.blueAccent[700],
+                        },
+                        "& .MuiCheckbox-root": {
+                            color: `${colors.greenAccent[200]} !important`,
+                        },
+                    }}
+                >
+                    <DataGrid checkboxSelection
+                              rows={users}
+                              columns={columns}
+                              scrollbarSize={10}
+                              sx={{width: "100%"}}
+                              pagination
+                    />
+                </Box>
+            </Box></Box>
     );
 };
 

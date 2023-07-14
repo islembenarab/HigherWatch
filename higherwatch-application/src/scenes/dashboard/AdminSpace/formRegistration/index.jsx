@@ -18,10 +18,10 @@ import api from "../../../../api/api";
 
 
 const FormRegistration = () => {
-
+    const [rolesS, setRoles] = useState([]);
+    const [structures, setStructures] = useState([]);
 
     useEffect(() => {
-        // Function to execute when the page is loading
         getRoles()
             .then((roles) => {
                 setRoles(roles);
@@ -29,15 +29,19 @@ const FormRegistration = () => {
             .catch((error) => {
                 console.log(error);
             });
-        // Example: Log a message
-        console.log('Page is loading');
+        getStructures()
+            .then((structures) => {
+                setStructures(structures);
+                console.log(rolesS)
+            })
+            .catch((error) => {
+                console.log(error);
+            });
 
-        // Example: Make an API call
-        // myApiCall();
     }, []);
 
 
-    const [rolesS, setRoles] = useState([]);
+
 
     const handleSubmit = (values) => {
         const {
@@ -50,12 +54,13 @@ const FormRegistration = () => {
             roles,
             email,
             password,
+            structure,
         } = values;
         api.post('accounts/api/auth/signUp',
-            {firstName, lastName, gender, birthDate, address, phone, roles, password, email})
+            {firstName, lastName, gender, birthDate, address, phone, roles, password, email,structure})
             .then((response) => {
                 // eslint-disable-next-line no-restricted-globals
-                window.location.href=localStorage.getItem("dashboardLink")
+                window.location.href="/dashboard"
             })
             .catch((error) => {
                 // Handle the error
@@ -67,7 +72,13 @@ const FormRegistration = () => {
         const response = await api.get('accounts/admin/getRoles');
         return response.data.map(role => ({label: role.name, value: role.name}))
     };
+    const getStructures = async () => {
 
+        const response = await api.get('accounts/admin/getStructures');
+        return response.data.map(structure => ({
+            ...structure,
+            id: structure.structureId}))
+    };
 
     return (
         <Box mt={2} mx={2} my={2} mb={2}>
@@ -236,6 +247,26 @@ const FormRegistration = () => {
                                     </Select>
                                 </FormControl>
                             </Grid>
+                            <Grid item xs={12} sm={6}>
+                                <FormControl fullWidth variant="filled" error={touched.structure && errors.structure}>
+                                    <InputLabel id="structure-label">Structure</InputLabel>
+                                    <Select
+                                        labelId="Structure-label"
+                                        id="structure"
+                                        value={values.structure}
+                                        name="structure"
+                                        onBlur={handleBlur}
+                                        onChange={handleChange}
+                                    >
+                                        {structures.map((structure) => (
+                                        <MenuItem  value={structure}>
+                                            {structure.structureName}
+                                        </MenuItem>
+
+                                            ))}
+                                    </Select>
+                                </FormControl>
+                            </Grid>
                             <Grid item xs={12}>
                                 <Button type="submit" color="secondary" variant="contained">
                                     Create New User
@@ -259,6 +290,7 @@ const checkoutSchema = yup.object().shape({
     address: yup.string().required("Address is required"),
     phone: yup.string().required("Phone is required"),
     roles: yup.array().min(1, "At least one role is required"),
+    structure: yup.object().required( "structure is required"),
 });
 
 const initialValues = {
@@ -270,6 +302,7 @@ const initialValues = {
     password: "",
     address: "",
     phone: "",
+    structure: "",
     roles: [], // Empty array for multiple selection
 };
 

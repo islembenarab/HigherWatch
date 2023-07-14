@@ -17,15 +17,7 @@ const LoginForm = () => {
 
                 // Redirect to the home page or a protected route
                 localStorage.setItem('user', JSON.stringify(response.data.user));
-                const user = JSON.parse(localStorage.getItem("user"))
-
-                const isAdmin = user.authorities.some((authority) => authority.authority === "ADMIN");
-                console.log(response.data.token)
-
-                if (isAdmin) {
-                    localStorage.setItem("dashboardLink","/adminspace")
-                    window.location.href = '/adminspace';
-                }
+                window.location.href="/dashboard"
             })
             .catch((error) => {
                 // Handle the error

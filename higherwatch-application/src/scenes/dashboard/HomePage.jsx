@@ -11,7 +11,8 @@ const Homepage = () => {
 
   // State to manage animation class
   const [animate, setAnimate] = useState(false);
-
+  const user = JSON.parse(localStorage.getItem("user"));
+  const isLoggedIn = user !== null;
   // Add animation class after the component has mounted
   useEffect(() => {
     setAnimate(true);
@@ -41,14 +42,18 @@ const Homepage = () => {
                   Manage and Monitor Your Projects
                 </Typography>
 
-                <Button
-                  variant="contained"
-                  size="large"
-                  component={Link}
-                  to="/loginform"
-                >
-                  Continue
-                </Button>
+             {isLoggedIn ? (
+                    // Render logged-in user content
+                    <Button variant="contained" color="inherit" component={Link} to="/dashboard" sx={{marginTop:"16px"}} >
+                      Go to dashboard  {user.firstName} {/* Replace with appropriate user data */}
+                    </Button>
+                ) : (
+                    // Render login button
+                    <Button variant="contained" component={Link} to="/loginform" color="inherit" sx={{marginTop:"16px"}} >
+                      Continue
+                    </Button>
+                )}
+
               </Box>
             </Box>
           </Grid>

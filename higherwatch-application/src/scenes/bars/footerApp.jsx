@@ -3,7 +3,7 @@ import React from "react";
 
 const FooterApp = ()=>{
 
-    return<AppBar color="inherit" sx={{ mt: "auto", top: "auto", bottom: 0 }}>
+    return<AppBar color="inherit" sx={{ mt: "auto", top: "auto", bottom: 0, position:"relative" }}>
         <Toolbar>
             <Box flexGrow={1}>
                 <Typography variant="body2" color="textSecondary">
@@ -12,7 +12,7 @@ const FooterApp = ()=>{
             </Box>
             <Box display="flex" alignItems="center">
                 <Typography variant="body2" color="textSecondary">
-                    Powered by Your Company
+                    Powered by Our Company
                 </Typography>
             </Box>
         </Toolbar>
